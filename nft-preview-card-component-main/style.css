@@ -1,0 +1,110 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+}
+
+input, textarea, button, select {
+    font: inherit;
+}
+
+
+/* Custom Properties */
+
+:root {
+    --ff-primary: 'Outfit', sans-serif;
+    --ff-secondary: 'Roboto', sans-serif;
+    --ff-tertiary: 'Roboto Serif', serif;
+
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-semibold: 600;
+
+    --clr-soft-blue: hsl(215, 51%, 70%);
+    --clr-cyan: hsl(178, 100%, 50%);
+    --clr-vd-blue-main: hsl(217, 54%, 11%); /* Very dark blue (main BG) */
+    --clr-vd-blue-card: hsl(216, 50%, 16%); /* Very dark blue (card BG) */
+    --clr-vd-blue-line: hsl(215, 32%, 27%); /* Very dark blue (line) */
+    --clr-white: hsl(0, 0%, 100%);
+
+    --fs-h1: 43px;
+    --fs-h2: 32px;
+    --fs-h3: 24px;
+    --fs-body: 18px;
+    --fs-footer: 13.5px;
+}
+
+/* General styles */
+
+body {
+    background: var(--clr-vd-blue-main);
+    color: var(--clr-soft-blue);
+    font-family: var(--ff-primary);
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-white);
+}
+
+
+/* Typography */
+
+h1, h2, h3 {
+    line-height: 1.1;
+    margin: 0;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+
+/* NFT preview card component */
+
+.component {
+    background: var(--clr-vd-blue-card);
+    padding: 1em;
+    width: 300px;
+    border-radius: 15px;
+    /* border: solid 1px white; */
+}
+
+.component__img {
+    border-radius: 10px;
+}
+
+.component__title {
+    color: var(--clr-white);
+}
+
+.component__price {
+    color: var(--clr-cyan);
+}
+
+/* footer */
+
+.footer {
+    font-size: var(--fs-footer);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1.25rem;
+}
+
+.footer__link:hover {
+    color: var(--clr-cyan);
+}
