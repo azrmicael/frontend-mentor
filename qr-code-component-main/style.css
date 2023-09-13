@@ -1,0 +1,113 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+}
+
+input, textarea, button, select {
+    font: inherit;
+}
+
+/* Custom Properties */
+
+:root {
+    --ff-primary: 'Outfit', sans-serif;
+    --ff-secondary: 'Roboto', sans-serif;
+    --ff-tertiary: 'Source Code Pro', monospace;
+
+    --fw-reg: 400;
+    --fw-bold: 700;
+
+    --clr-light: hsl(0, 0%, 100%); /* White */
+    --clr-gray: hsl(212, 45%, 89%); /* Light gray */
+    --clr-accent: hsl(220, 15%, 55%); /* Grayish blue */
+    --clr-dark: hsl(218, 44%, 22%); /* Dark blue */
+
+    --fs-h1: 36px;
+    --fs-h2: 27px;
+    --fs-h3: 20px;
+    --fs-body: 15px;
+    --fs-footer: 11px;
+}
+
+
+/* General styles */
+
+body {
+    background: var(--clr-gray);
+    text-indent: 5px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+/* Typography */
+
+h1, h2, h3 {
+    line-height: 1.1;
+    margin: 0;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+
+/* QR code component */
+
+.component {
+    background: var(--clr-light);
+    padding: 1em;
+    height: 475px;
+    width: 310px;
+    margin: 0 auto;
+    border-radius: 20px;
+    /* border: solid black 1px; */
+}
+
+.component__img {
+    border-radius: 10px;
+}
+
+.component__text {
+    font-family: var(--ff-primary);
+    padding: inherit;
+    text-align: center;
+}
+
+.component__title {
+    color: var(--clr-dark);
+    font-weight: var(--fw-bold);
+}
+
+.component__description {
+    color: var(--clr-accent);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-reg);
+}
+
+
+/* footer */
+
+.footer {
+    font-size: var(--fs-footer);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1rem;
+}
+
+.footer__link {
+    color: hsl(228, 45%, 44%);
+}

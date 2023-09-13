@@ -1,0 +1,134 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+
+/* Custom Properties */
+
+:root {
+    --ff-primary: 'Roboto', sans-serif;
+    --ff-secondary: 'Roboto Mono', monospace;
+
+    --fw-reg: 400;
+    --fw-bold: 500;
+
+    --clr-bg: #fff0f6;
+    --clr-text: #181d40;
+    --clr-primary: #67bcd0;
+    --clr-primary-hover: #4251b0;
+
+    --fs-h1: 32px;
+    --fs-h2: 25px;
+    --fs-h3: 18px;
+    --fs-body: 14px;
+    --fs-footer: 12px;
+}
+
+
+/* General styles */
+
+body.dark-mode {
+    --clr-bg: #181d40;
+    --clr-text: #fff0f6;
+    --clr-primary: #67bcd0;
+    --clr-primary-hover: #4251b0;
+}
+
+body {
+    background: var(--clr-bg);
+    color: var(--clr-text);
+    font-family: var(--ff-primary);
+}
+
+
+/* Typography */
+
+h1 {
+    font-size: var(--fs-h1);
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+
+/* Links page */
+
+.container {
+    text-align: center;
+    width: 300px;
+    margin: 60px auto;
+}
+
+.logo {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding: 2px;
+    border: var(--clr-primary) solid 4px;
+}
+
+.username {
+    font-family: var(--ff-secondary);
+    font-weight: var(--fw-reg);
+    font-size: var(--fs-h3);
+    opacity: 0.8;
+}
+
+.username__link {
+    color: inherit;
+}
+
+.list {
+    list-style: none;
+    margin: 48px 0;
+}
+
+.list__link {
+    display: flex;
+    height: 53px;
+    align-items: center;
+    justify-content: center;
+    background: var(--clr-primary);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: var(--fs-body);
+    margin-bottom: 16px;
+    border-radius: 6px;
+    transition: background 400ms;
+}
+
+.list__link:hover {
+    background: var(--clr-primary-hover);
+}
+
+.fa-brands,
+.fa-solid {
+    padding-right: .4em;
+}
+
+
+/* footer */
+
+.footer {
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-footer);
+    opacity: 0.6;
+    transition: opacity 400ms;
+}
+
+.footer__link {
+    color: inherit;
+}
+
+.footer:hover {
+    opacity: 1;
+}
