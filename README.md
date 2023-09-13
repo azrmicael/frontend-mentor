@@ -3,13 +3,13 @@
 <!-- Light Mode -->
 <p align="center">
     <a href="https://www.frontendmentor.io/?ref=challenge/#gh-light-mode-only">
-    <img src="https://github.com/azrmicael/icons/blob/67a103924e6cc8b036cc445c43d87064d95b4748/images/frontend-mentor-light.png#gh-light-mode-only" alt="Frontend Mentor" height="150">
+    <img src="https://github.com/azrmicael/icons/blob/cc73cf8c57cca7dac8366f0202cec75408893b96/images/fem-light-logo.svg#gh-light-mode-only" alt="Frontend Mentor" height="100">
 </p>
 
 <!-- Dark Mode -->
 <p align="center">
     <a href="https://www.frontendmentor.io/?ref=challenge/#gh-dark-mode-only">
-    <img src="https://github.com/azrmicael/icons/blob/32e0cb629ba09fa40e40eeefa039ef04079d62ea/images/frontend-mentor-dark.png#gh-dark-mode-only" alt="Frontend Mentor" height="150">
+    <img src="https://github.com/azrmicael/icons/blob/cc73cf8c57cca7dac8366f0202cec75408893b96/images/fem-dark-logo.svg#gh-dark-mode-only" alt="Frontend Mentor" height="100">
 </p>
 
 #
