@@ -30,10 +30,10 @@ input, textarea, button, select {
     --clr-vd-blue-line: hsl(215, 32%, 27%); /* Very dark blue (line) */
     --clr-white: hsl(0, 0%, 100%);
 
-    --fs-h1: 43px;
-    --fs-h2: 32px;
-    --fs-h3: 24px;
-    --fs-body: 18px;
+    --fs-h1: 38px;
+    --fs-h2: 28px;
+    --fs-h3: 21px;
+    --fs-p: 18px;
     --fs-footer: 12px;
 }
 
@@ -83,6 +83,7 @@ h1, h2, h3 {
 h1 { font-size: var(--fs-h1); }
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
+p  { font-size: var(--fs-p);  }
 
 
 /* NFT preview card component */
@@ -96,23 +97,46 @@ h3 { font-size: var(--fs-h3); }
 }
 
 .component__img {
-    transition: 
-        transform 750ms cubic-bezier(.5, 0, .5, 1),
-        opacity 250ms linear;
+    background: var(--clr-cyan);
+    border-radius: 7.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+    width: 300px;
 }
 
-.component__img:hover {
+.the__img--main,
+.the__img--main:hover,
+.the__img--hover {
     transition: opacity 250ms linear;
+}
+
+.the__img--main:hover {
     opacity: 0.5;
 }
 
-.the__img {
-    border-radius: 7.5px;
+.the__img--hover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    object-fit: contain;
+    opacity: 0;
+}
+
+.the__img--hover:hover {
+    opacity: 1;
 }
 
 .component__title {
     color: var(--clr-white);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-semibold);
     margin-top: 20px;
 }
 
