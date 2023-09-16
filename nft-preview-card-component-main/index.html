@@ -15,12 +15,15 @@
 </head>
 <body>
   <!-- NFT preview card component -->
-  <div class="component center">
+  <article class="component center">
 
     <div class="component__img">
       <a class="img__link" href="#">
-        <img class="the__img--main" src="images/image-equilibrium.jpg" alt="Equilibrium">
-        <img class="the__img--hover" src="images/icon-view.svg" alt="View icon">
+        <img class="main__img" src="images/image-equilibrium.jpg" alt="Equilibrium">
+        
+        <div class="overlay__container">
+          <img class="overlay__img center" src="images/icon-view.svg" alt="View icon">
+        </div>
       </a>
     </div>
 
@@ -32,28 +35,28 @@
         Our Equilibrium collection promotes balance and calm.
       </p>
   
-      <div class="price_and_time inline--sb">
-        <div class="component__price inline--s">
+      <div class="inline">
+        <div class="component__price">
           <img class="price__img" src="images/icon-ethereum.svg" alt="Ethereum icon">
           <p class="price__description">0.041 ETH</p>
         </div>
 
-        <div class="component__time inline--s">
+        <div class="component__time">
           <img class="time__img" src="images/icon-clock.svg" alt="Clock icon">
           <p class="time__description">3 days left</p>
         </div>
       </div>
       
-      <hr class="hr__solid">
+      <hr class="line__solid">
         
-      <div class="component__creator inline--s">
+      <div class="component__creator">
         <img class="creator__img" src="images/image-avatar.png" alt="Avatar">
         <p class="creator__description">
           Creation of <a class="creator__link" href="#">Jules Wyvern</a>
         </p>
       </div>
-  </div>
-  
+  </article>
+
   <!-- footer -->
   <footer class="footer">
     Challenge by 
