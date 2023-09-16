@@ -32,11 +32,13 @@ input, textarea, button, select {
     --clr-line: hsl(215, 32%, 27%);
     --clr-white: hsl(0, 0%, 100%);
 
-    --fs-h1: 38px;
+    --fs-h1: 34px;
     --fs-h2: 28px;
-    --fs-h3: 21px;
-    --fs-p: 18px;
-    --fs-footer: 12px;
+    --fs-h3: 22px;
+    --fs-p1: 18px;
+    --fs-p2: 17px;
+    --fs-p3: 16px;
+    --fs-fo: 12px;
 
     --bs: 1px 40px 5px 12.5px rgba(0, 0, 0, 0.06),
           0px 25px 5px 40.0px rgba(0, 0, 0, 0.04);
@@ -69,9 +71,9 @@ a:hover {
 
 .inline {
     display: flex;
-    align-items: center; /* ? */
+    align-items: center;
     justify-content: space-between;
-    padding: 25px 0; /* ? */
+    padding: 25px 0 24px;
 }
 
 /* Typography */
@@ -83,7 +85,7 @@ h1, h2, h3 {
 h1 { font-size: var(--fs-h1); }
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
-p  { font-size: var(--fs-p);  }
+p  { font-size: var(--fs-p1); }
 
 
 /* NFT preview card component */
@@ -98,7 +100,7 @@ p  { font-size: var(--fs-p);  }
 }
 
 .component__img {
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     position: relative;
 }
@@ -130,8 +132,7 @@ p  { font-size: var(--fs-p);  }
 .component__title {
     color: var(--clr-white);
     font-weight: var(--fw-semibold);
-    /* display: inline-block; */
-    padding: 20px 0;
+    padding: 26px 0 20px;
 }
 
 .component__description {
@@ -151,26 +152,31 @@ p  { font-size: var(--fs-p);  }
     font-weight: var(--fw-semibold);
 }
 
+.price__description,
+.time__description {
+    font-size: var(--fs-p2);
+}
+
 .price__img,
 .time__img {
-    margin-right: 5px; /* or 7px? */
+    margin-right: 5px;
 }
 
 .line__solid {
     border-bottom: 1px solid var(--clr-line);
-    margin-bottom: 13px;
+    margin-bottom: 16px;
 }
 
 .creator__img {
-    border: 2px solid var(--clr-white);
+    border: 1px solid var(--clr-white);
     border-radius: 50%;
     margin-right: 15px;
-    height: 30px; /* or 33px? */
-    width: 30px; /* or 33px? */
+    height: 33px;
+    width: 33px;
 }
 
 .creator__description {
-    font-size: 16px;
+    font-size: var(--fs-p3);
 }
 
 .creator__link {
@@ -178,10 +184,10 @@ p  { font-size: var(--fs-p);  }
 }
 
 
-/* footer (need to review) */
+/* footer */
 
 .footer {
-    font-size: var(--fs-footer);
+    font-size: var(--fs-fo);
     font-weight: var(--fw-light);
     text-align: center;
     position: fixed;
