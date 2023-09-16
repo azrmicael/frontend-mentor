@@ -2,6 +2,8 @@
     box-sizing: border-box;
 }
 
+* { margin: 0; }
+
 img, picture, svg, video {
     display: block;
     max-width: 100%;
@@ -25,9 +27,9 @@ input, textarea, button, select {
 
     --clr-soft-blue: hsl(215, 51%, 70%);
     --clr-cyan: hsl(178, 100%, 50%);
-    --clr-vd-blue-main: hsl(217, 54%, 11%); /* Very dark blue (main BG) */
-    --clr-vd-blue-card: hsl(216, 50%, 16%); /* Very dark blue (card BG) */
-    --clr-vd-blue-line: hsl(215, 32%, 27%); /* Very dark blue (line) */
+    --clr-main-bg: hsl(217, 54%, 11%);
+    --clr-card-bg: hsl(216, 50%, 16%);
+    --clr-line: hsl(215, 32%, 27%);
     --clr-white: hsl(0, 0%, 100%);
 
     --fs-h1: 38px;
@@ -41,7 +43,7 @@ input, textarea, button, select {
 /* General styles */
 
 body {
-    background: var(--clr-vd-blue-main);
+    background: var(--clr-main-bg);
     color: var(--clr-soft-blue);
     font-family: var(--ff-primary);
 }
@@ -62,22 +64,17 @@ a:hover {
     transform: translate(-50%, -50%);
 }
 
-.inline--sb {
+.inline {
     display: flex;
+    align-items: center; /* ? */
     justify-content: space-between;
+    padding: 25px 0; /* ? */
 }
-
-.inline--s {
-    display: flex;
-    justify-content: start;
-}
-
 
 /* Typography */
 
 h1, h2, h3 {
-    line-height: 1.1;
-    margin: 0;
+    line-height: 1;
 }
 
 h1 { font-size: var(--fs-h1); }
@@ -89,63 +86,60 @@ p  { font-size: var(--fs-p);  }
 /* NFT preview card component */
 
 .component {
-    background: var(--clr-vd-blue-card);
-    border-radius: 12.5px;
+    background: var(--clr-card-bg);
+    border-radius: 15px;
     padding: 1.5em;
     height: 595px;
     width: 350px;
 }
 
 .component__img {
-    background: var(--clr-cyan);
-    border-radius: 7.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+    border-radius: 12px;
     overflow: hidden;
     position: relative;
-    height: 300px;
-    width: 300px;
 }
 
-.the__img--main,
-.the__img--main:hover,
-.the__img--hover {
-    transition: opacity 250ms linear;
-}
-
-.the__img--main:hover {
-    opacity: 0.5;
-}
-
-.the__img--hover {
+.overlay__container {
+    background: hsla(178, 100%, 50%, 0.5);
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-    margin: auto;
-    object-fit: contain;
-    opacity: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
 }
 
-.the__img--hover:hover {
-    opacity: 1;
+.overlay__img {
+    width: 50px;
+}
+
+.component__img:hover .overlay__container {
+    display: block;
+}
+
+.main__img,
+.main__img:hover,
+.overlay__img {
+    transition: opacity 250ms linear;
 }
 
 .component__title {
     color: var(--clr-white);
     font-weight: var(--fw-semibold);
-    margin-top: 20px;
+    /* display: inline-block; */
+    padding: 20px 0;
 }
 
 .component__description {
-    font-weight: var(--fw-light);
+    font-weight: var(--fw-light); /* or reg? */
+    line-height: 1.4;
 }
 
-.price_and_time {
-    padding: 0.75em 0;
+.component__price,
+.component__time,
+.component__creator {
+    display: flex;
+    align-items: center;
 }
 
 .price__description {
@@ -153,37 +147,34 @@ p  { font-size: var(--fs-p);  }
     font-weight: var(--fw-semibold);
 }
 
-.component__price,
-.component__time {
-    align-items: center;
-}
-
 .price__img,
 .time__img {
-    margin-right: 5px;
+    margin-right: 5px; /* or 7px? */
 }
 
-.price__description,
-.time__description,
-.creator__description {
-    margin: auto 0;
-}
-
-.hr__solid {
-    border: solid 1px var(--clr-vd-blue-line);
-    margin: 15px 0;
+.line__solid {
+    border-color: var(--clr-line);
+    margin-bottom: 13px;
 }
 
 .creator__img {
-    border: solid 1px var(--clr-white);
+    border: 2px solid var(--clr-white);
     border-radius: 50%;
     margin-right: 15px;
-    height: 35px;
-    width: 35px;
+    height: 30px; /* or 33px? */
+    width: 30px; /* or 33px? */
+}
+
+.creator__description {
+    font-size: 16px;
+}
+
+.creator__link {
+    font-weight: var(--fw-semibold);
 }
 
 
-/* footer */
+/* footer (need to review) */
 
 .footer {
     font-size: var(--fs-footer);
