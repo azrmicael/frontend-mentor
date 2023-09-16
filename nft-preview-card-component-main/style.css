@@ -27,7 +27,7 @@ input, textarea, button, select {
 
     --clr-soft-blue: hsl(215, 51%, 70%);
     --clr-cyan: hsl(178, 100%, 50%);
-    --clr-main-bg: hsl(217, 54%, 11%);
+    --clr-main-bg: hsl(216, 54%, 11%);
     --clr-card-bg: hsl(216, 50%, 16%);
     --clr-line: hsl(215, 32%, 27%);
     --clr-white: hsl(0, 0%, 100%);
@@ -37,6 +37,9 @@ input, textarea, button, select {
     --fs-h3: 21px;
     --fs-p: 18px;
     --fs-footer: 12px;
+
+    --bs: 1px 40px 5px 12.5px rgba(0, 0, 0, 0.06),
+          0px 25px 5px 40.0px rgba(0, 0, 0, 0.04);
 }
 
 
@@ -87,6 +90,7 @@ p  { font-size: var(--fs-p);  }
 
 .component {
     background: var(--clr-card-bg);
+    box-shadow: var(--bs);
     border-radius: 15px;
     padding: 1.5em;
     height: 595px;
@@ -106,21 +110,21 @@ p  { font-size: var(--fs-p);  }
     top: 0;
     height: 100%;
     width: 100%;
-    display: none;
+    opacity: 0;
+    transition: opacity 250ms linear;
 }
 
 .img__overlay {
     width: 50px;
 }
 
-.component__img:hover .container__overlay {
-    display: block;
+.container__overlay:hover {
+    opacity: 1;
+    transition: opacity 250ms linear;
 }
 
-.img__main,
-.img__main:hover,
-.img__overlay {
-    transition: opacity 250ms linear;
+.component__img:hover .container__overlay {
+    display: block;
 }
 
 .component__title {
