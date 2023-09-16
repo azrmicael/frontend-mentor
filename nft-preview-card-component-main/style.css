@@ -99,7 +99,7 @@ p  { font-size: var(--fs-p);  }
     position: relative;
 }
 
-.overlay__container {
+.container__overlay {
     background: hsla(178, 100%, 50%, 0.5);
     position: absolute;
     left: 0;
@@ -109,17 +109,17 @@ p  { font-size: var(--fs-p);  }
     display: none;
 }
 
-.overlay__img {
+.img__overlay {
     width: 50px;
 }
 
-.component__img:hover .overlay__container {
+.component__img:hover .container__overlay {
     display: block;
 }
 
-.main__img,
-.main__img:hover,
-.overlay__img {
+.img__main,
+.img__main:hover,
+.img__overlay {
     transition: opacity 250ms linear;
 }
 
@@ -153,7 +153,7 @@ p  { font-size: var(--fs-p);  }
 }
 
 .line__solid {
-    border-color: var(--clr-line);
+    border-bottom: 1px solid var(--clr-line);
     margin-bottom: 13px;
 }
 
