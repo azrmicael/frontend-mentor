@@ -1,37 +1,49 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
-img, picture, svg, video {
-    display: block;
-    max-width: 100%;
-}
-
-input, textarea, button, select {
-    font: inherit;
-}
-
-/* Custom Properties */
-
+/*
+  Custom Properties
+*/
 :root {
-    --ff-primary: 'Outfit', sans-serif;
-    --ff-secondary: 'Roboto', sans-serif;
-    --ff-tertiary: 'Source Code Pro', monospace;
-
-    --fw-reg: 400;
-    --fw-bold: 700;
-
     --clr-light: hsl(0, 0%, 100%); /* White */
     --clr-gray: hsl(212, 45%, 89%); /* Light gray */
     --clr-accent: hsl(220, 15%, 55%); /* Grayish blue */
     --clr-dark: hsl(218, 44%, 22%); /* Dark blue */
     --clr-hover: hsl(228, 45%, 44%); /* Dark blue hover */
 
-    --fs-h1: 36px;
-    --fs-h2: 27px;
-    --fs-h3: 20px;
-    --fs-body: 15px;
-    --fs-footer: 11px;
+    --ff-primary: 'Outfit', sans-serif;
+    --ff-secondary: 'Roboto', sans-serif;
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    --fs-h1: 1.25rem;
+    --fs-p: 0.938rem; /* 15px */
+}
+
+/*
+  1. Use a more-intuitive box-sizing model
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/*
+  2. Improve media defaults
+*/
+img, picture, svg, canvas, video {
+    display: block;
+    max-width: 100%;
+}
+/*
+  3. Remove built-in form typography styles
+*/
+input, textarea, button, select {
+    font: inherit;
+}
+
+
+/* Typography */
+
+h1, h2, h3 {
+    line-height: 1.1;
+    margin: 0;
 }
 
 
@@ -48,17 +60,6 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-/* Typography */
-
-h1, h2, h3 {
-    line-height: 1.1;
-    margin: 0;
-}
-
-h1 { font-size: var(--fs-h1); }
-h2 { font-size: var(--fs-h2); }
-h3 { font-size: var(--fs-h3); }
 
 
 /* QR code component */
@@ -84,20 +85,21 @@ h3 { font-size: var(--fs-h3); }
 
 .component__title {
     color: var(--clr-dark);
+    font-size: var(--fs-h1);
     font-weight: var(--fw-bold);
 }
 
 .component__description {
     color: var(--clr-accent);
-    font-size: var(--fs-body);
-    font-weight: var(--fw-reg);
+    font-size: var(--fs-p);
+    font-weight: var(--fw-regular);
 }
 
 
-/* footer */
+/* Footer */
 
 .footer {
-    font-size: var(--fs-footer);
+    font-size: 0.688rem;
     text-align: center;
     position: fixed;
     bottom: 0;
