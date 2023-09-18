@@ -83,6 +83,7 @@ body {
     /* for this project only */
     display: grid;
     place-content: center;
+    margin: 0 1rem;
 }
 
 a {
