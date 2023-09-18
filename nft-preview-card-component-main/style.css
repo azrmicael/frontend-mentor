@@ -1,25 +1,9 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
-* { margin: 0; }
-
-img, picture, svg, video {
-    display: block;
-    max-width: 100%;
-}
-
-input, textarea, button, select {
-    font: inherit;
-}
-
-
-/* Custom Properties */
-
+/* 
+  Custom Properties
+*/
 :root {
     --ff-primary: 'Outfit', sans-serif;
     --ff-secondary: 'Roboto', sans-serif;
-    --ff-tertiary: 'Roboto Serif', serif;
 
     --fw-light: 300;
     --fw-regular: 400;
@@ -32,16 +16,50 @@ input, textarea, button, select {
     --clr-line: hsl(215, 32%, 27%);
     --clr-white: hsl(0, 0%, 100%);
 
-    --fs-h1: 34px;
-    --fs-h2: 28px;
-    --fs-h3: 22px;
-    --fs-p1: 18px;
-    --fs-p2: 17px;
-    --fs-p3: 16px;
-    --fs-fo: 12px;
+    --fs-p: 1.125rem;  /* 18px */
 
     --bs: 1px 40px 5px 12.5px rgba(0, 0, 0, 0.06),
           0px 25px 5px 40.0px rgba(0, 0, 0, 0.04);
+}
+
+/*
+  1. Use a more-intuitive box-sizing model
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+    margin: 0;
+}
+/*
+  3. Improve media defaults
+*/
+img, picture, svg, canvas, video {
+    display: block;
+    max-width: 100%;
+}
+/*
+  4. Remove built-in form typography styles
+*/
+input, textarea, button, select {
+    font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+h1, h2, h3, h4, h5, h6, p {
+    overflow-wrap: break-word;
+}
+
+h1, h2, h3 {
+    line-height: 1;
+}
+
+p {
+    font-size: var(--fs-p);
 }
 
 
@@ -73,19 +91,8 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 25px 0 24px;
+    padding: 1.563rem 0 1.5rem;
 }
-
-/* Typography */
-
-h1, h2, h3 {
-    line-height: 1;
-}
-
-h1 { font-size: var(--fs-h1); }
-h2 { font-size: var(--fs-h2); }
-h3 { font-size: var(--fs-h3); }
-p  { font-size: var(--fs-p1); }
 
 
 /* NFT preview card component */
@@ -93,14 +100,14 @@ p  { font-size: var(--fs-p1); }
 .component {
     background: var(--clr-card-bg);
     box-shadow: var(--bs);
-    border-radius: 15px;
+    border-radius: 0.938rem;
     padding: 1.5em;
     height: 595px;
     width: 350px;
 }
 
 .component__img {
-    border-radius: 10px;
+    border-radius: 0.625rem;
     overflow: hidden;
     position: relative;
 }
@@ -131,12 +138,13 @@ p  { font-size: var(--fs-p1); }
 
 .component__title {
     color: var(--clr-white);
+    font-size: 1.375rem;
     font-weight: var(--fw-semibold);
-    padding: 26px 0 20px;
+    padding: 1.625rem 0 1.25rem;
 }
 
 .component__description {
-    font-weight: var(--fw-light); /* or reg? */
+    font-weight: var(--fw-light);
     line-height: 1.4;
 }
 
@@ -154,7 +162,7 @@ p  { font-size: var(--fs-p1); }
 
 .price__description,
 .time__description {
-    font-size: var(--fs-p2);
+    font-size: 1.063rem;
 }
 
 .price__img,
@@ -176,7 +184,7 @@ p  { font-size: var(--fs-p1); }
 }
 
 .creator__description {
-    font-size: var(--fs-p3);
+    font-size: 1rem;
 }
 
 .creator__link {
@@ -184,10 +192,10 @@ p  { font-size: var(--fs-p1); }
 }
 
 
-/* footer */
+/* Footer */
 
 .footer {
-    font-size: var(--fs-fo);
+    font-size: 0.75rem;
     font-weight: var(--fw-light);
     text-align: center;
     position: fixed;
