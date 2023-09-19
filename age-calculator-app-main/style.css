@@ -78,13 +78,22 @@ h1, h2, h3 {
 body {
     background-color: var(--clr-neutral-200);
     font-family: var(--ff-primary);
-    margin: 4.25rem 1rem;
+    margin: 4.25rem 1rem;   
+}
+
+.line__solid {
+    border-bottom: 2px solid var(--clr-neutral-200);
+    margin-bottom: 2rem;
 }
 
 
 /* Utilities */
 
-/* .item-overlap {} */
+.absolute-vertical-align {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
 
 
 /* Calculator styles */
@@ -108,14 +117,14 @@ body {
     height: 90px;
 }
 
-label {
+.form__label {
     color: var(--clr-neutral-500);
     font-size: 0.625rem;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
-input[type=text] {
+.form__input {
     border: 1px solid var(--clr-neutral-300);
     border-radius: 0.3rem;
     text-indent: 0.5rem;
@@ -123,7 +132,7 @@ input[type=text] {
     width: 100%;
 }
 
-input[type=text]:focus {
+.form__input:focus {
     outline: none;
     border-color: var(--clr-primary-600);
 }
@@ -132,30 +141,29 @@ input:hover {
     cursor: pointer;
 }
 
-.invalid-input {
+.form__invalid-input {
     color: var(--clr-secondary-400);
     font-size: 0.5rem;
     font-style: italic;
     margin: 0.2em 0;
 }
 
-input[type=button] {
+.form__submit-button {
+    margin-top: -1em;
     background-color: var(--clr-primary-400);
-    background-image: url('./assets/images/icon-arrow.svg');
     border: none;
-    border-radius: 2rem;
-    height: 56px;
-    width: 56px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
 }
 
-input[type=button]:hover {
+.form__submit-button:hover {
     background-color: var(--clr-neutral-900);
 }
 
-.line__solid {
-    /* display: flex; */
-    border-bottom: 2px solid var(--clr-neutral-200);
-    margin-bottom: 1rem;
+.submit-button__img {
+    height: 20px;
+    width: 100%;
 }
 
 .result {
