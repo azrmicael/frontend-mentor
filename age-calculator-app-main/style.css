@@ -72,12 +72,100 @@ h1, h2, h3 {
 }
 
 
-/* Footer */
+/* General styling */
 
-.footer { 
-    font-size: 11px; text-align: center;
+body {
+    background-color: var(--clr-neutral-200);
+    font-family: var(--ff-primary);
+    margin: 4.25rem 1rem;
 }
 
-.footer a { 
-    color: hsl(228, 45%, 44%);
+
+/* Utilities */
+
+/* .item-overlap {} */
+
+
+/* Calculator styles */
+
+.age-calculator {
+    background-color: var(--clr-neutral-100);
+    border-radius: 1.25rem 1.25rem 5rem;
+    height: 25.5rem;
+    padding: 1rem;
+}
+
+.form__content {
+    display: flex;
+    padding: 1.5rem 0;
+    /* border: 1px solid blue; */
+}
+
+/* .container {
+    border: 1px solid red;
+} */
+
+label {
+    color: var(--clr-neutral-500);
+    font-size: 0.625rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+input[type=text] {
+    border: 1px solid var(--clr-neutral-300);
+    border-radius: 0.3rem;
+    text-indent: 0.5rem;
+    height: 2.615rem;
+    width: 4.375rem;
+}
+
+input[type=button] {
+    background-color: var(--clr-primary-400);
+    background-image: url('./assets/images/icon-arrow.svg');
+    border: none;
+    border-radius: 2rem;
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.result {
+    line-height: 1;
+    font-size: 3rem;
+    font-style: italic;
+    font-weight: var(--fw-extra-bold);
+}
+
+.line__solid {
+    /* display: flex; */
+    border-bottom: 2px solid var(--clr-neutral-200);
+    margin-bottom: 1rem;
+}
+
+span {
+    color: var(--clr-primary-400);
+}
+
+
+/* Footer */
+
+.footer {
+    font-size: 0.6rem;
+    font-weight: var(--fw-regular);
+    text-align: center;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 1.25rem;
+    width: 100%;
+}
+
+.footer__link {
+    color: var(--clr-primary-400);
+    text-decoration: none;
+}
+
+.footer__link:hover {
+    color: var(--clr-secondary-400);
 }
