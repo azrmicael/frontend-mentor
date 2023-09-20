@@ -94,12 +94,23 @@ body {
     margin: auto;
 }
 
+/* Remove Arrows/Spinners */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
 
 /* Calculator styles */
 
 .age-calculator {
     --left-value: 0;
-    --width-value: 300px;
+    --width-value: 320px;
 
     background-color: var(--clr-neutral-100);
     border-radius: 1.25rem 1.25rem 5rem;
