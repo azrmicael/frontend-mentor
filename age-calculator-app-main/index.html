@@ -20,23 +20,24 @@
   <main>
     <!-- Age calculator app -->
     <article class="age-calculator">
-      <form name="ageCalculator" action="" onsubmit="return validateForm()" method="get">
-
+      <h1 class="visually-hidden">Age calculator app</h1>
+      
+      <form class="form" id="age-calculator">
         <div class="form__content">
-          <div class="container">
+          <div class="form__field">
             <label class="form__label" for="day" id="label__day">Day</label>
             <input class="form__input" type="number" inputmode="numeric" id="input__day" placeholder="DD">
             <p class="form__invalid-input" id="invalid__day"></p>
           </div>
 
-          <div class="container">
+          <div class="form__field">
             <label class="form__label" for="month" id="label__month">Month</label>
             <input class="form__input" type="number" inputmode="numeric" id="input__month" placeholder="MM">
             <p class="form__invalid-input" id="invalid__month"></p>
           </div>
 
-          <div class="container">
-            <label class="form__label" for="year" id="label__month">Year</label>
+          <div class="form__field">
+            <label class="form__label" for="year" id="label__year">Year</label>
             <input class="form__input" type="number" inputmode="numeric" id="input__year" placeholder="YYYY">
             <p class="form__invalid-input" id="invalid__year"></p>
           </div>
@@ -44,7 +45,7 @@
 
         <div class="wrapper">
           <div class="line__solid absolute-center"></div>
-          <button class="form__submit-button absolute-center" type="submit">
+          <button class="form__submit-button absolute-center" type="submit" id="button__submit">
             <img class="submit-button__img" src="./assets/images/icon-arrow.svg" alt="arrow-down icon">
           </button>
         </div>
