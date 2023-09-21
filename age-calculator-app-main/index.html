@@ -20,24 +20,24 @@
   <main>
     <!-- Age calculator app -->
     <article class="age-calculator">
-      <form action="/page-processes-form-data" method="post">
+      <form name="ageCalculator" action="" onsubmit="return validateForm()" method="get">
 
         <div class="form__content">
           <div class="container">
-            <label class="form__label" for="day">Day</label>
-            <input class="form__input" type="number" inputmode="numeric" id="day" placeholder="DD">
+            <label class="form__label" for="day" id="label__day">Day</label>
+            <input class="form__input" type="number" inputmode="numeric" id="input__day" placeholder="DD">
             <p class="form__invalid-input" id="invalid__day"></p>
           </div>
 
           <div class="container">
-            <label class="form__label" for="month">Month</label>
-            <input class="form__input" type="number" inputmode="numeric" id="month" placeholder="MM">
+            <label class="form__label" for="month" id="label__month">Month</label>
+            <input class="form__input" type="number" inputmode="numeric" id="input__month" placeholder="MM">
             <p class="form__invalid-input" id="invalid__month"></p>
           </div>
 
           <div class="container">
-            <label class="form__label" for="year">Year</label>
-            <input class="form__input" type="number" inputmode="numeric" id="year" placeholder="YYYY">
+            <label class="form__label" for="year" id="label__month">Year</label>
+            <input class="form__input" type="number" inputmode="numeric" id="input__year" placeholder="YYYY">
             <p class="form__invalid-input" id="invalid__year"></p>
           </div>
         </div>
