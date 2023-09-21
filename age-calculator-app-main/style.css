@@ -85,6 +85,16 @@ body {
 
 /* Utilities */
 
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
 .absolute-center {
     position: absolute;
     left: 0;
@@ -133,7 +143,7 @@ input[type=number] {
     max-width: 300px;
 }
 
-.container {
+.form__field {
     width: 90px;
     height: 90px;
 }
@@ -167,6 +177,10 @@ input:hover {
     font-size: 0.5rem;
     font-style: italic;
     margin: 0.2em 0;
+}
+
+.error {
+    color: var(--clr-secondary-400);
 }
 
 .wrapper {
