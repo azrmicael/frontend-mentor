@@ -43,7 +43,6 @@ const isBetween = (length, min, max) => length < min || length > max ? false : t
 
 // 3.   EventListener
 
-// 3.1  Listen to the submit event
 form.addEventListener('submit', function (e) {
     // prevent the form from submitting
     e.preventDefault();
@@ -109,7 +108,6 @@ const checkMonth = () => {
 };
 
 // 4.3  Validate the year field
-
 const checkYear = () => {
     let valid = false;
     const min = 0,
@@ -131,20 +129,54 @@ const checkYear = () => {
 };
 
 
-// 5.   Calculate the age
+// 5.   Calculates the number of leap years
+
+const numLeapYears = () => {
+    const startYear = inputYear.value.trim();
+    let yearRange = [];
+
+    // create an array with the years in the range
+    for (let i = startYear; i <= currentYear; i++)
+    {
+        yearRange.push(i);
+    };
+    let newArray = [];
+
+    // check if the year is a leap year
+    yearRange.forEach((year) => {
+        if ((year % 4 === 0 && year % 100 !== 0) ||
+            (year % 100 === 0 && year % 400 === 0)) {
+                newArray.push(year);
+            };
+    });
+
+    // returns the number of leap years
+    return newArray.length;
+}
+
+
+// 6.   Calculates the number of months and days remaining (in progress)
+
+const numMonths = () => {
+    console.log('');
+}
+
+
+// 7.   Calculate the age
 
 const calcAge = () => {
     // one day in ms
     const oneDay = 1000 * 60 * 60 * 24;
+    const leapYears = numLeapYears();
 
     // input date
     const year = inputYear.value.trim();
     const month = inputMonth.value.trim();
     const day = inputDay.value.trim();
-    let inputDate = new Date(year, month - 1, day);
+    const inputDate = new Date(year, month - 1, day);
 
     // current date
-    let currentDate = new Date();
+    const currentDate = new Date();
 
     // calculate the difference in ms
     let diff = Math.round(currentDate.getTime() - inputDate.getTime());
@@ -159,9 +191,13 @@ const calcAge = () => {
         // total number of days
         let numDays = Math.floor(diff / oneDay);
 
+        // considering leap years
+        numDays -= leapYears;
+
         // number of years
         let resultYears = Math.floor(numDays / 365);
-        numDays -= resultYears * 365;
+        numDays -= + resultYears * 365;
+        console.log(`numDays: ${numDays}`);
 
         // number of months
         let resultMonths = Math.floor(numDays / 31);
