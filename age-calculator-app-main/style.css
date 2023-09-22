@@ -159,6 +159,7 @@ label {
 input {
     border: 1px solid var(--clr-neutral-300);
     border-radius: 0.3rem;
+    caret-color: var(--clr-primary-600);
     text-indent: 0.5rem;
     height: 42px;
     width: 100%;
