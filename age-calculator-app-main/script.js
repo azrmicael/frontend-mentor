@@ -1,26 +1,33 @@
 // 1.   Constants
 
-// 1.1  Colors
+// 1.1  Define the colors
+const defaultColor = 'hsl(0, 1%, 44%)';
 const validColor = 'hsl(0, 1%, 44%)';
 const invalidColor = 'hsl(0, 100%, 67%)';
 
-// 1.2  Date
+// 1.2  Get the current year
 const currentYear = new Date().getFullYear();
 
-// 1.3  Select the input fields and the form
-const labelDay = document.querySelector('#label__day');
-const inputDay = document.querySelector('#input__day');
-const invalidDay = document.querySelector('#invalid__day');
+// 1.3  Select the input fields 
+const labelDay = document.querySelector('#label-day');
+const inputDay = document.querySelector('#input-day');
+const validationDay = document.querySelector('#validation-day');
 
-const labelMonth = document.querySelector('#label__month');
-const inputMonth = document.querySelector('#input__month');
-const invalidMonth = document.querySelector('#invalid__month');
+const labelMonth = document.querySelector('#label-month');
+const inputMonth = document.querySelector('#input-month');
+const validationMonth = document.querySelector('#validation-month');
 
-const labelYear = document.querySelector('#label__year');
-const inputYear = document.querySelector('#input__year');
-const invalidYear = document.querySelector('#invalid__year');
+const labelYear = document.querySelector('#label-year');
+const inputYear = document.querySelector('#input-year');
+const validationYear = document.querySelector('#validation-year');
 
+// 1.4 Select the form
 const form = document.querySelector('#age-calculator');
+
+// 1.5  Select the result fields
+const years = document.querySelector('#result-years');
+const months = document.querySelector('#result-months');
+const days = document.querySelector('#result-days');
 
 
 // 2.   Utilities
@@ -36,6 +43,7 @@ const isBetween = (length, min, max) => length < min || length > max ? false : t
 
 // 3.   EventListener
 
+// 3.1  Listen to the submit event
 form.addEventListener('submit', function (e) {
     // prevent the form from submitting
     e.preventDefault();
@@ -50,7 +58,9 @@ form.addEventListener('submit', function (e) {
         isInputYearValid;
 
     // submit if the form is valid
-    if (isFormValid) {};        
+    if (isFormValid) {
+        calcAge();
+    };        
 });
 
 
@@ -65,13 +75,13 @@ const checkDay = () => {
 
     if (!isRequired(day)) {
         labelDay.style.color = invalidColor;
-        invalidDay.innerHTML = 'This field is required';
+        validationDay.innerHTML = 'This field is required';
     } else if (!isBetween(day, min, max)) {
         labelDay.style.color = invalidColor;
-        invalidDay.innerHTML = 'Must be a valid day';
+        validationDay.innerHTML = 'Must be a valid day';
     } else {
         labelDay.style.color = validColor;
-        invalidDay.innerHTML = '';
+        validationDay.innerHTML = '';
         valid = true;
     }
     return valid;
@@ -86,13 +96,13 @@ const checkMonth = () => {
     
     if (!isRequired(month)) {
         labelMonth.style.color = invalidColor;
-        invalidMonth.innerHTML = 'This field is required';
+        validationMonth.innerHTML = 'This field is required';
     } else if (!isBetween(month, min, max)) {
         labelMonth.style.color = invalidColor;
-        invalidMonth.innerHTML = 'Must be a valid month';
+        validationMonth.innerHTML = 'Must be a valid month';
     } else {
         labelMonth.style.color = validColor;
-        invalidMonth.innerHTML = '';
+        validationMonth.innerHTML = '';
         valid = true;
     }
     return valid;
@@ -108,14 +118,61 @@ const checkYear = () => {
     
     if (!isRequired(year)) {
         labelYear.style.color = invalidColor;
-        invalidYear.innerHTML = 'This field is required';
+        validationYear.innerHTML = 'This field is required';
     } else if (!isBetween(year, min, max)) {
         labelYear.style.color = invalidColor;
-        invalidYear.innerHTML = 'Must be in the past';
+        validationYear.innerHTML = 'Must be in the past';
     } else {
         labelYear.style.color = validColor;
-        invalidYear.innerHTML = '';
+        validationYear.innerHTML = '';
         valid = true;
     }
     return valid;
+};
+
+
+// 5.   Calculate the age
+
+const calcAge = () => {
+    // one day in ms
+    const oneDay = 1000 * 60 * 60 * 24;
+
+    // input date
+    const year = inputYear.value.trim();
+    const month = inputMonth.value.trim();
+    const day = inputDay.value.trim();
+    let inputDate = new Date(year, month - 1, day);
+
+    // current date
+    let currentDate = new Date();
+
+    // calculate the difference in ms
+    let diff = Math.round(currentDate.getTime() - inputDate.getTime());
+
+    if (diff < 0) {
+        labelDay.style.color = invalidColor;
+        validationDay.innerHTML = 'Must be in the past';
+        years.innerHTML = '--';
+        months.innerHTML = '--';
+        days.innerHTML = '--';
+    } else {
+        // total number of days
+        let numDays = Math.floor(diff / oneDay);
+
+        // number of years
+        let resultYears = Math.floor(numDays / 365);
+        numDays -= resultYears * 365;
+
+        // number of months
+        let resultMonths = Math.floor(numDays / 31);
+        numDays -= resultMonths * 31;
+
+        // number of days
+        let resultDays = Math.floor(numDays);
+
+        // print result
+        years.innerHTML = resultYears;
+        months.innerHTML = resultMonths;
+        days.innerHTML = resultDays;
+    }  
 };
