@@ -155,10 +155,43 @@ const numLeapYears = () => {
 }
 
 
-// 6.   Calculates the number of months and days remaining (in progress)
+// 6.   Calculates the number of months and days remaining
 
-const numMonths = () => {
-    console.log('');
+const numMonthsAndDays = (numDays) => {
+    // selects the appropriate array for the current year
+    if ((currentYear % 4 === 0 && currentYear % 100 !== 0) ||
+        (currentYear % 100 === 0 && currentYear % 400 === 0)) {
+        // leap year:   JA, FE, MR, AP, MY, JN, JL, AU, SE, OC, NV, DE
+        daysPerMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    } else {
+        // conve. year: JA, FE, MR, AP, MY, JN, JL, AU, SE, OC, NV, DE
+        daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    };
+    
+    let MonthsAndDays = [];
+    console.log(numDays);
+    
+    // calculates the number of months remaining
+    for (let months = 0, n = 0; n < numDays; months++){
+        n += daysPerMonth[months];
+        MonthsAndDays[0] = months;
+    };
+
+    console.log(MonthsAndDays[0]);
+
+    // calculates the number of days remaining
+    if (MonthsAndDays[0] == 0) {
+        MonthsAndDays[1] = numDays;
+    } else {
+        for(let i = 0, days = 0; i < MonthsAndDays[0]; i++) {
+            days += daysPerMonth[i];
+            console.log(i, daysPerMonth[i], days);
+            MonthsAndDays[1] = numDays - days;   
+        }
+    };
+
+    // return the number of [months, days]
+    return MonthsAndDays;
 }
 
 
@@ -197,14 +230,15 @@ const calcAge = () => {
         // number of years
         let resultYears = Math.floor(numDays / 365);
         numDays -= + resultYears * 365;
-        console.log(`numDays: ${numDays}`);
+
+        // calculates the number of months and days
+        resultYearsAndMonths = numMonthsAndDays(numDays);
 
         // number of months
-        let resultMonths = Math.floor(numDays / 31);
-        numDays -= resultMonths * 31;
+        let resultMonths = resultYearsAndMonths[0];
 
         // number of days
-        let resultDays = Math.floor(numDays);
+        let resultDays = resultYearsAndMonths[1];
 
         // print result
         years.innerHTML = resultYears;
