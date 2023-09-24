@@ -21,7 +21,7 @@ const labelYear = document.querySelector('#label-year');
 const inputYear = document.querySelector('#input-year');
 const validationYear = document.querySelector('#validation-year');
 
-// 1.4 Select the form
+// 1.4  Select the form
 const form = document.querySelector('#age-calculator');
 
 // 1.5  Select the result fields
@@ -39,6 +39,43 @@ const isRequired = value => value === '' ? false : true;
 // 2.2  isBetween() function
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 // returns false if the length argument is not between the min and max argument
+
+// 2.3  Determine whether it is a leap year
+const isLeapYear = (year) => {
+    let leapYear = false;
+
+    if ((year % 4 === 0 && year % 100 !== 0) || 
+        (year % 100 === 0 && year % 400 === 0)) {
+        leapYear = true;
+    }
+
+    // returns true if it is a leap year and false otherwise
+    return leapYear;
+};
+
+// 2.4  Determines the number of days per month for the year
+const calcDaysPerMonth = (year) => {
+    let daysPerMonth = [];
+
+    // selects the appropriate array for the current year
+    if (isLeapYear(year)) {
+        // leap year:   JA, FE, MR, AP, MY, JN, JL, AU, SE, OC, NV, DE
+        daysPerMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    } else {
+        // conve. year: JA, FE, MR, AP, MY, JN, JL, AU, SE, OC, NV, DE
+        daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    };
+
+    // returns an array with the number of days in each month
+    return daysPerMonth;
+};
+
+// 2.5  Invalid input error
+// const invalidInputError = () => {
+        // years.innerHTML = '--';
+        // months.innerHTML = '--';
+        // days.innerHTML = '--';
+// };
 
 
 // 3.   EventListener
@@ -68,9 +105,13 @@ form.addEventListener('submit', function (e) {
 // 4.1  Validate the day field
 const checkDay = () => {
     let valid = false;
-    const min = 1,
-        max = 31;
+
+    const year = inputYear.value.trim();
+    const month = inputMonth.value.trim();
     const day = inputDay.value.trim();
+
+    const min = 1;
+    const max = calcDaysPerMonth(year)[month - 1];
 
     if (!isRequired(day)) {
         labelDay.style.color = invalidColor;
@@ -89,9 +130,9 @@ const checkDay = () => {
 // 4.2  Validate the month field
 const checkMonth = () => {
     let valid = false;
-    const min = 1,
-        max = 12;
+    
     const month = inputMonth.value.trim();
+    const min = 1, max = 12;
     
     if (!isRequired(month)) {
         labelMonth.style.color = invalidColor;
@@ -110,9 +151,9 @@ const checkMonth = () => {
 // 4.3  Validate the year field
 const checkYear = () => {
     let valid = false;
-    const min = 0,
-        max = currentYear;
+
     const year = inputYear.value.trim();
+    const min = 0, max = currentYear;
     
     if (!isRequired(year)) {
         labelYear.style.color = invalidColor;
@@ -136,18 +177,17 @@ const numLeapYears = () => {
     let yearRange = [];
 
     // create an array with the years in the range
-    for (let i = startYear; i <= currentYear; i++)
-    {
+    for (let i = startYear; i <= currentYear; i++) {
         yearRange.push(i);
     };
+
     let newArray = [];
 
     // check if the year is a leap year
     yearRange.forEach((year) => {
-        if ((year % 4 === 0 && year % 100 !== 0) ||
-            (year % 100 === 0 && year % 400 === 0)) {
-                newArray.push(year);
-            };
+        if (isLeapYear(year)) {
+            newArray.push(year);
+        };
     });
 
     // returns the number of leap years
@@ -158,18 +198,10 @@ const numLeapYears = () => {
 // 6.   Calculates the number of months and days remaining
 
 const numMonthsAndDays = (numDays) => {
-    // selects the appropriate array for the current year
-    if ((currentYear % 4 === 0 && currentYear % 100 !== 0) ||
-        (currentYear % 100 === 0 && currentYear % 400 === 0)) {
-        // leap year:   JA, FE, MR, AP, MY, JN, JL, AU, SE, OC, NV, DE
-        daysPerMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    } else {
-        // conve. year: JA, FE, MR, AP, MY, JN, JL, AU, SE, OC, NV, DE
-        daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    };
-    
     let MonthsAndDays = [];
-    console.log(numDays);
+
+    // selects the appropriate array for the current year
+    let daysPerMonth = calcDaysPerMonth(currentYear);
     
     // calculates the number of months remaining
     for (let months = 0, n = 0; n < numDays; months++){
@@ -177,15 +209,12 @@ const numMonthsAndDays = (numDays) => {
         MonthsAndDays[0] = months;
     };
 
-    console.log(MonthsAndDays[0]);
-
     // calculates the number of days remaining
     if (MonthsAndDays[0] == 0) {
         MonthsAndDays[1] = numDays;
     } else {
         for(let i = 0, days = 0; i < MonthsAndDays[0]; i++) {
             days += daysPerMonth[i];
-            console.log(i, daysPerMonth[i], days);
             MonthsAndDays[1] = numDays - days;   
         }
     };
@@ -200,15 +229,16 @@ const numMonthsAndDays = (numDays) => {
 const calcAge = () => {
     // one day in ms
     const oneDay = 1000 * 60 * 60 * 24;
+
+    // calculates the number of leap years to date
     const leapYears = numLeapYears();
 
-    // input date
     const year = inputYear.value.trim();
     const month = inputMonth.value.trim();
     const day = inputDay.value.trim();
+    
+    // date provided and current date
     const inputDate = new Date(year, month - 1, day);
-
-    // current date
     const currentDate = new Date();
 
     // calculate the difference in ms
