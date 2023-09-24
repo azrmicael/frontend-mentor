@@ -1,9 +1,10 @@
 // 1.   Constants
 
 // 1.1  Define the colors
-const defaultColor = 'hsl(0, 1%, 44%)';
-const validColor = 'hsl(0, 1%, 44%)';
-const invalidColor = 'hsl(0, 100%, 67%)';
+const labelDefaultColor = 'hsl(0, 1%, 44%)';
+const borderDefaultColor = 'hsl(0, 0%, 86%)'
+const greenValidColor = 'hsl(147, 100%, 35%)';
+const redInvalidColor = 'hsl(0, 100%, 67%)';
 
 // 1.2  Get the current year
 const currentYear = new Date().getFullYear();
@@ -71,11 +72,53 @@ const calcDaysPerMonth = (year) => {
 };
 
 // 2.5  Invalid input error
-// const invalidInputError = () => {
-        // years.innerHTML = '--';
-        // months.innerHTML = '--';
-        // days.innerHTML = '--';
-// };
+const invalidInputError = (field, message) => {
+    if (field == 'day') {
+        labelDay.style.color = redInvalidColor;
+        inputDay.style.borderColor = redInvalidColor;
+        validationDay.style.color = redInvalidColor;
+        validationDay.innerHTML = message;
+    } else if (field == 'month') {
+        labelMonth.style.color = redInvalidColor;
+        inputMonth.style.borderColor = redInvalidColor;
+        validationMonth.style.color = redInvalidColor;
+        validationMonth.innerHTML = message;
+    } else if (field == 'year') {
+        labelYear.style.color = redInvalidColor;
+        inputYear.style.borderColor = redInvalidColor;
+        validationYear.style.color = redInvalidColor;
+        validationYear.innerHTML = message;
+    }
+
+    years.innerHTML = '--';
+    months.innerHTML = '--';
+    days.innerHTML = '--';
+
+    return;
+};
+
+// 2.6 Valid input 
+const validInput = (field, message) => {
+    if (field == 'day') {
+        labelDay.style.color = labelDefaultColor;
+        inputDay.style.borderColor = borderDefaultColor;
+        validationDay.style.color = labelDefaultColor;
+        validationDay.innerHTML = message;
+    } else if (field == 'month') {
+        labelMonth.style.color = labelDefaultColor;
+        inputMonth.style.borderColor = 'hsl(0, 0%, 86%)';
+        validationMonth.style.color = labelDefaultColor;
+        validationMonth.innerHTML = message;
+    } else if (field == 'year') {
+        labelYear.style.color = labelDefaultColor;
+        inputYear.style.borderColor = 'hsl(0, 0%, 86%)';
+        validationYear.style.color = labelDefaultColor;
+        validationYear.innerHTML = message;
+    }
+
+    return;
+};
+
 
 
 // 3.   EventListener
@@ -114,14 +157,12 @@ const checkDay = () => {
     const max = calcDaysPerMonth(year)[month - 1];
 
     if (!isRequired(day)) {
-        labelDay.style.color = invalidColor;
-        validationDay.innerHTML = 'This field is required';
+        invalidInputError('day', 'This field is required');
     } else if (!isBetween(day, min, max)) {
-        labelDay.style.color = invalidColor;
-        validationDay.innerHTML = 'Must be a valid day';
+        invalidInputError('day', 'Must be a valid day');
     } else {
-        labelDay.style.color = validColor;
-        validationDay.innerHTML = '';
+        labelDay.style.color = labelDefaultColor;
+        validInput('day', '');
         valid = true;
     }
     return valid;
@@ -135,14 +176,11 @@ const checkMonth = () => {
     const min = 1, max = 12;
     
     if (!isRequired(month)) {
-        labelMonth.style.color = invalidColor;
-        validationMonth.innerHTML = 'This field is required';
+        invalidInputError('month', 'This field is required');
     } else if (!isBetween(month, min, max)) {
-        labelMonth.style.color = invalidColor;
-        validationMonth.innerHTML = 'Must be a valid month';
+        invalidInputError('month', 'Must be a valid month');
     } else {
-        labelMonth.style.color = validColor;
-        validationMonth.innerHTML = '';
+        validInput('month', '');
         valid = true;
     }
     return valid;
@@ -156,14 +194,11 @@ const checkYear = () => {
     const min = 0, max = currentYear;
     
     if (!isRequired(year)) {
-        labelYear.style.color = invalidColor;
-        validationYear.innerHTML = 'This field is required';
+        invalidInputError('year', 'This field is required');
     } else if (!isBetween(year, min, max)) {
-        labelYear.style.color = invalidColor;
-        validationYear.innerHTML = 'Must be in the past';
+        invalidInputError('year', 'Must be in the past');
     } else {
-        labelYear.style.color = validColor;
-        validationYear.innerHTML = '';
+        validInput('year', '');
         valid = true;
     }
     return valid;
@@ -245,11 +280,7 @@ const calcAge = () => {
     let diff = Math.round(currentDate.getTime() - inputDate.getTime());
 
     if (diff < 0) {
-        labelDay.style.color = invalidColor;
-        validationDay.innerHTML = 'Must be in the past';
-        years.innerHTML = '--';
-        months.innerHTML = '--';
-        days.innerHTML = '--';
+        invalidInputError('day', 'Must be in the past');
     } else {
         // total number of days
         let numDays = Math.floor(diff / oneDay);
