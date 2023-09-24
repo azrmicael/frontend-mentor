@@ -106,12 +106,12 @@ const validInput = (field, message) => {
         validationDay.innerHTML = message;
     } else if (field == 'month') {
         labelMonth.style.color = labelDefaultColor;
-        inputMonth.style.borderColor = 'hsl(0, 0%, 86%)';
+        inputMonth.style.borderColor = borderDefaultColor;
         validationMonth.style.color = labelDefaultColor;
         validationMonth.innerHTML = message;
     } else if (field == 'year') {
         labelYear.style.color = labelDefaultColor;
-        inputYear.style.borderColor = 'hsl(0, 0%, 86%)';
+        inputYear.style.borderColor = borderDefaultColor;
         validationYear.style.color = labelDefaultColor;
         validationYear.innerHTML = message;
     }
