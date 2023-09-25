@@ -77,11 +77,15 @@ h1, h2, h3 {
 /* General styling */
 
 body {
+    --body-align: none;
+    --body-padding-top: 88px;
+
     background-color: var(--clr-neutral-200);
     font-family: var(--ff-primary);
     display: flex;
+    align-items: var(--body-align);
     justify-content: center;
-    padding-top: 88px;
+    padding-top: var(--body-padding-top);
 }
 
 
@@ -122,14 +126,15 @@ input[type=number] {
 
 .age-calculator {
     --button-left: 0;
-    --field-width: 82px;
+    --field-width: 88px;
+    --form-height: 486px;
     --form-width: 343px;
     --input-text-indent: 0.875rem;
     --result-font-size: 3.375rem;
 
     background-color: var(--clr-neutral-100);
-    border-radius: 1.25rem 1.25rem 5rem;
-    height: 486px;
+    border-radius: 1.25rem 1.25rem 6rem;
+    height: var(--form-height);
     width: var(--form-width);
     padding: 1rem 1.485rem;
 }
@@ -147,6 +152,18 @@ input[type=number] {
     .age-calculator {
         --button-left: 1;
         --form-width: 450px;
+    }
+}
+
+@media (min-width: 900px) {
+    body {
+        --body-align: center;
+        --body-padding-top: 2em;
+    }
+
+    .age-calculator {
+        --form-width: 840px;
+        --form-height: 650px;
     }
 }
 
