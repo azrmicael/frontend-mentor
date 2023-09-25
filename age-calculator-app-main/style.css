@@ -134,7 +134,7 @@ input[type=number] {
     padding: 1rem 1.485rem;
 }
 
-@media (max-width: 350px) {
+@media (max-width: 360px) {
     .age-calculator {
         --field-width: 82px;
         --form-width: 310px;
