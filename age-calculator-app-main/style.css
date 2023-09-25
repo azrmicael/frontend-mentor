@@ -140,20 +140,20 @@ input[type=number] {
 
 .form__content {
     display: flex;
-    padding: 1.5rem 0 1rem;
+    padding: 1.6rem 0 1rem;
     justify-content: space-between;
     max-width: 300px;
 }
 
 .form__field {
-    width: 90px;
-    height: 90px;
+    width: 88px;
+    height: 100px;
 }
 
 label {
     color: var(--clr-neutral-500);
-    font-size: 0.625rem;
-    letter-spacing: 2px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
     text-transform: uppercase;
 }
 
@@ -161,8 +161,10 @@ input {
     border: 1px solid var(--clr-neutral-300);
     border-radius: 0.3rem;
     caret-color: var(--clr-primary-600);
-    text-indent: 0.5rem;
-    height: 42px;
+    text-indent: 0.875rem;
+    font-size: 1.25rem;
+    margin-top: 1px;
+    height: 54px;
     width: 100%;
 }
 
@@ -186,15 +188,17 @@ input:hover {
 }
 
 .valid {
-    /* color: var(--clr-secondary-401); */
-    color: var(--clr-neutral-500);
+    color: var(--clr-secondary-401);
 }
 
+.default {
+    color: var(--clr-neutral-500);
+}
 
 .form__submit {
     position: relative;
     margin-bottom: 1rem;
-    height: 50px;
+    height: 60px;
     max-width: var(--width-value);
 }
 
@@ -208,8 +212,8 @@ input:hover {
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    height: 55px;
-    width: 55px;
+    height: 64px;
+    width: 64px;
     left: var(--left-value);
 }
 
@@ -223,8 +227,9 @@ input:hover {
 }
 
 .form__result {
-    line-height: 1;
-    font-size: 3rem;
+    margin-top: 2.125rem;
+    line-height: 1.075;
+    font-size: 3.625rem;
     font-style: italic;
     font-weight: var(--fw-extra-bold);
 }
