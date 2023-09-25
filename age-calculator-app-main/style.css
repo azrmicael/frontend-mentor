@@ -121,20 +121,30 @@ input[type=number] {
 /* Calculator styles */
 
 .age-calculator {
-    --left-value: 0;
-    --width-value: 343px;
+    --button-left: 0;
+    --field-width: 82px;
+    --form-width: 343px;
+    --result-font-size: 3.375rem;
 
     background-color: var(--clr-neutral-100);
     border-radius: 1.25rem 1.25rem 5rem;
     height: 486px;
-    width: var(--width-value);
+    width: var(--form-width);
     padding: 1rem 1.485rem;
+}
+
+@media (max-width: 350px) {
+    .age-calculator {
+        --field-width: 82px;
+        --form-width: 310px;
+        --result-font-size: 3rem;
+    }
 }
 
 @media (min-width: 480px) {
     .age-calculator {
-        --left-value: 1;
-        --width-value: 450px;
+        --button-left: 1;
+        --form-width: 450px;
     }
 }
 
@@ -146,7 +156,7 @@ input[type=number] {
 }
 
 .form__field {
-    width: 88px;
+    width: var(--field-width);
     height: 100px;
 }
 
@@ -199,7 +209,7 @@ input:hover {
     position: relative;
     margin-bottom: 1rem;
     height: 60px;
-    max-width: var(--width-value);
+    max-width: var(--form-width);
 }
 
 .line__solid {
@@ -214,7 +224,7 @@ input:hover {
     cursor: pointer;
     height: 64px;
     width: 64px;
-    left: var(--left-value);
+    left: var(--button-left);
 }
 
 #submit-button:hover {
@@ -227,9 +237,9 @@ input:hover {
 }
 
 .form__result {
-    margin-top: 2.125rem;
+    margin-top: 2.25rem;
     line-height: 1.075;
-    font-size: 3.625rem;
+    font-size: var(--result-font-size);
     font-style: italic;
     font-weight: var(--fw-extra-bold);
 }
