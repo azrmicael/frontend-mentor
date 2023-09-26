@@ -130,9 +130,10 @@ input[type=number] {
     --ac-height: 486px;
     --ac-width: 343px;
     --ac-padding: 1rem 1.5rem;
+    --ac-border-radius: 1.438rem 1.438rem 6.188rem;
 
     background-color: var(--clr-neutral-100);
-    border-radius: 1.438rem 1.438rem 6.188rem;
+    border-radius: var(--ac-border-radius);
     height: var(--ac-height);
     width: var(--ac-width);
     padding: var(--ac-padding);
@@ -249,7 +250,7 @@ input:hover {
 }
 
 #submit-button img {
-    height: 20px;
+    height: 50%;
     width: 100%;
 }
 
@@ -271,14 +272,17 @@ span {
 /* Footer */
 
 footer {
-    font-size: 0.6rem;
+    --f-font-size: 0.6rem;
+    --f-height: 20px;
+
+    font-size: var(--f-font-size);
     font-weight: var(--fw-regular);
     text-align: center;
     position: fixed;
     right: 0;
     left: 0;
     bottom: 0;
-    height: 20px;
+    height: var(--f-height);
     width: 100%;
 }
 
@@ -315,25 +319,24 @@ footer a:hover {
 @media (min-width: 900px) {
     body {
         --b-align-items: center;
-        --b-padding-top: 2em;
+        --b-padding-top: 3.875em;
     }
 
     .age-calculator {
-        --ac-height: 650px;
+        --ac-border-radius: 1.438rem 1.438rem 12.5rem;
+        --ac-height: 680px;
         --ac-width: 840px;
         --ac-padding: 1.625rem 3.5rem;
     }
 
     .form__content {
         --fc-margin-top: 1.75rem;
-        /* --fc-margin-bottom: 1rem; */
         --fc-max-width: 545px;
     }
 
     .form__field {
         --ff-height: 138px;
         --ff-width: 160px;
-        /* border: 1px solid red; */
     }
 
     label {
@@ -351,7 +354,8 @@ footer a:hover {
     }
 
     .form__submit {
-        --fs-height: 14px;
+        --fs-margin-top: 2.375rem;
+        --fs-margin-bottom: 2.625rem;
         --fs-max-width: 100%;
     }
 
@@ -363,5 +367,10 @@ footer a:hover {
 
     .form__result {
         --fr-font-size: 6.5rem;
+    }
+
+    footer {
+        --f-font-size: 1rem;
+        --f-height: 30px;
     }
 }
