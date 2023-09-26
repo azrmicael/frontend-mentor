@@ -272,8 +272,14 @@ const calcAge = () => {
     const month = inputMonth.value.trim();
     const day = inputDay.value.trim();
     
-    // date provided and current date
+    // date provided 
     const inputDate = new Date(year, month - 1, day);
+    // Preferred method; never interprets any value as being a relative offset,
+    // but instead uses the year value as-is
+    inputDate.setFullYear(inputYear.value.trim());
+    // now: 98 is 98 (not 1998)
+
+    // current date
     const currentDate = new Date();
 
     // calculate the difference in ms
