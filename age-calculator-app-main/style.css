@@ -78,14 +78,12 @@ h1, h2, h3 {
 
 body {
     --b-align-items: none;
-    --b-padding-top: 5.5rem;
 
     background-color: var(--clr-neutral-200);
     font-family: var(--ff-primary);
     display: flex;
     align-items: var(--b-align-items);
     justify-content: center;
-    padding-top: var(--b-padding-top);
 }
 
 
@@ -127,14 +125,16 @@ input[type=number] {
 /* Calculator styles */
 
 .age-calculator {
+    --ac-border-radius: 1.438rem 1.438rem 6.188rem;
+    --ac-margin-top: 5.5rem;
     --ac-height: 486px;
     --ac-width: 343px;
     --ac-padding: 1rem 1.5rem;
-    --ac-border-radius: 1.438rem 1.438rem 6.188rem;
 
     background-color: var(--clr-neutral-100);
     border-radius: var(--ac-border-radius);
     height: var(--ac-height);
+    margin-top: var(--ac-margin-top);
     width: var(--ac-width);
     padding: var(--ac-padding);
 }
@@ -318,11 +318,11 @@ footer a:hover {
 @media (min-width: 900px) {
     body {
         --b-align-items: center;
-        --b-padding-top: 2.125rem;
     }
 
     .age-calculator {
         --ac-border-radius: 1.438rem 1.438rem 12.5rem;
+        --ac-margin-top: 0;
         --ac-height: 652px;
         --ac-width: 840px;
         --ac-padding: 1.625rem 3.5rem;
