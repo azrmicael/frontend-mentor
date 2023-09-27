@@ -318,7 +318,7 @@ footer a:hover {
 @media (min-width: 900px) {
     body {
         --b-align-items: center;
-        --b-padding-top: 0;
+        --b-padding-top: 2.125rem;
     }
 
     .age-calculator {
@@ -336,7 +336,6 @@ footer a:hover {
     .form__field {
         --ff-height: auto;
         --ff-width: 160px;
-        /* border: 1px solid blue; */
     }
 
     label {
