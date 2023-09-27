@@ -6,6 +6,7 @@
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 img {
@@ -80,10 +81,6 @@ h1 {
     font-size: var(--fs-h3);
     font-weight: var(--fw-reg);
     opacity: 0.8;
-}
-
-.username__link {
-    color: inherit;
 }
 
 .list {
