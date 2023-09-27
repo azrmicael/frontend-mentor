@@ -157,7 +157,7 @@ input[type=number] {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: start; */
     height: var(--ff-height);
     width: var(--ff-width);
 }
@@ -199,7 +199,6 @@ input:hover {
 
     font-size: var(--fv-font-size);
     font-style: italic;
-    height: calc(var(--fv-font-size) * 2);
 }
 
 .invalid {
@@ -312,19 +311,19 @@ footer a:hover {
     }
 
     .form__result {
-        --fr-font-size: 3rem;
+        --fr-font-size: 2.875rem;
     }
 }
 
 @media (min-width: 900px) {
     body {
         --b-align-items: center;
-        --b-padding-top: 3.875em;
+        --b-padding-top: 0;
     }
 
     .age-calculator {
         --ac-border-radius: 1.438rem 1.438rem 12.5rem;
-        --ac-height: 680px;
+        --ac-height: 652px;
         --ac-width: 840px;
         --ac-padding: 1.625rem 3.5rem;
     }
@@ -333,14 +332,16 @@ footer a:hover {
         --fc-margin-top: 1.75rem;
         --fc-max-width: 545px;
     }
-
+    
     .form__field {
-        --ff-height: 138px;
+        --ff-height: auto;
         --ff-width: 160px;
+        /* border: 1px solid blue; */
     }
 
     label {
         --l-font-size: 0.875rem;
+        margin-bottom: 0.438rem;
     }
     
     input {
@@ -354,8 +355,8 @@ footer a:hover {
     }
 
     .form__submit {
-        --fs-margin-top: 2.375rem;
-        --fs-margin-bottom: 2.625rem;
+        --fs-margin-top: 2.688rem;
+        --fs-margin-bottom: 2.688rem;
         --fs-max-width: 100%;
     }
 
