@@ -3,7 +3,7 @@
 /* ======================================== */
 
 /*
-  1. Mobile
+  1. Mobile (Default)
 */
 :root {
     /* colors */
@@ -26,7 +26,6 @@
     --ff-sans-cond: "Barlow Condensed", sans-serif;
     --ff-sans-normal: "Barlow", sans-serif;
 }
-
 /*
   2. Tablet
 */
@@ -51,8 +50,6 @@
         --fs-400: 1.125rem;
     }
 }
-
-
 
 
 /* ======================================== */
@@ -148,24 +145,34 @@ input, textarea, button, select {
 }
 
 .grid-container {
-    border: 3px solid limegreen;
+    text-align: center;
     display: grid;
+    place-items: center;
+    padding-inline: 1rem;
+}
+
+.grid-container > * {
+    max-width: 50ch;
 }
 
 @media (min-width: 45em) {
     .grid-container {
+        text-align: left;
         column-gap: var(--container-gap, 2rem);
         grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
     }
 
     .grid-container > *:first-child {
         grid-column: 2;
-        outline: 1px solid red;
     }
     
     .grid-container > *:last-child {
         grid-column: 3;
-        outline: 1px solid blue;
+    }
+
+    .grid-container--home {
+        padding-bottom: max(6rem, 20vh);
+        align-items: end;
     }
 }
 
@@ -239,6 +246,7 @@ input, textarea, button, select {
 /* --- Large Button ------ */
 
 .large-button {
+    font-size: 2rem;
     position: relative;
     display: inline-grid;
     z-index: 1;
@@ -350,4 +358,32 @@ input, textarea, button, select {
 .numbers-indicators > [aria-selected="true"] {
     color: hsl(var(--clr-dark));
     background-color: hsl(var(--clr-white) / 1);
+}
+
+
+/* ======================================== */
+/* --- PAGE SPECIFIC BACKGROUND ----------- */
+/* ======================================== */
+
+body {
+    background-size: cover;
+    background-position: bottom center;
+}
+
+/* --- Home ------ */
+
+.home {
+    background-image: url(./assets/home/background-home-mobile.jpg);
+}
+
+@media (min-width: 35em) {
+    .home {
+        background-position: center center;
+        background-image: url(./assets/home/background-home-tablet.jpg);
+    }
+}
+@media (min-width: 45em) {
+    .home {
+        background-image: url(./assets/home/background-home-desktop.jpg);
+    }
 }
