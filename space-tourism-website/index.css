@@ -175,6 +175,8 @@ input, textarea, button, select {
 /* --- COMPONENTS ------------------------- */
 /* ======================================== */
 
+/* --- Large Button ------ */
+
 .large-button {
     position: relative;
     display: grid;
@@ -205,6 +207,8 @@ input, textarea, button, select {
     transform: scale(1.5);
 }
 
+/* --- Primary Navigation ------ */
+
 .primary-navigation {
     --gap: 8rem;
     --underline-gap: 2rem;
@@ -221,6 +225,8 @@ input, textarea, button, select {
     font-weight: 700;
     margin-right: 0.5em;
 }
+
+/* --- Underline Indicators ------ */
 
 .underline-indicators > * {
     cursor: pointer;
@@ -244,6 +250,8 @@ input, textarea, button, select {
     --gap: 2rem;
 }
 
+/* --- Dot Indicators ------ */
+
 .dot-indicators > * {
     cursor: pointer;
     border: 0;
@@ -261,6 +269,8 @@ input, textarea, button, select {
 .dot-indicators > [aria-selected="true"] {
     background-color: hsl(var(--clr-white) / 1);
 }
+
+/* --- Numbers Indicators ------ */
 
 .numbers-indicators > * {
     cursor: pointer;
