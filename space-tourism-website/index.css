@@ -463,6 +463,10 @@ body {
     background-image: url(./assets/destination/background-destination-mobile.jpg);
 }
 
+.crew {
+    background-image: url(./assets/crew/background-crew-mobile.jpg);
+}
+
 @media (min-width: 35em) {
     .home {
         background-position: center center;
@@ -473,6 +477,11 @@ body {
         background-position: center center;
         background-image: url(./assets/destination/background-destination-tablet.jpg);
     }
+
+    .crew {
+        background-position: center center;
+        background-image: url(./assets/crew/background-crew-tablet.jpg);
+    }
 }
 @media (min-width: 45em) {
     .home {
@@ -481,6 +490,10 @@ body {
 
     .destination {
         background-image: url(./assets/destination/background-destination-desktop.jpg);
+    }
+
+    .crew {
+        background-image: url(./assets/crew/background-crew-desktop.jpg);
     }
 }
 
