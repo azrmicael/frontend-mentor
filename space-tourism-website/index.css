@@ -182,7 +182,6 @@ input, textarea, button, select {
 .bg-dark { background-color: hsl(var(--clr-dark)); }
 .bg-accent { background-color: hsl(var(--clr-light)); }
 .bg-white { background-color: hsl(var(--clr-white)); }
-.bg-transparent { background-color: transparent; }
 
 .text-dark { color: hsl(var(--clr-dark)); }
 .text-accent { color: hsl(var(--clr-light)); }
@@ -379,7 +378,6 @@ input, textarea, button, select {
     }
 }
 
-
 /* --- Underline Indicators ------ */
 
 .underline-indicators > * {
@@ -387,6 +385,7 @@ input, textarea, button, select {
     padding: var(--underline-gap, 1rem) 0;
     border: 0;
     border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
+    background-color: transparent;
 }
 
 .underline-indicators > *:hover,
@@ -455,16 +454,10 @@ body {
     background-position: bottom center;
 }
 
+/* --- Home ------ */
+
 .home {
     background-image: url(./assets/home/background-home-mobile.jpg);
-}
-
-.destination {
-    background-image: url(./assets/destination/background-destination-mobile.jpg);
-}
-
-.crew {
-    background-image: url(./assets/crew/background-crew-mobile.jpg);
 }
 
 @media (min-width: 35em) {
@@ -472,26 +465,47 @@ body {
         background-position: center center;
         background-image: url(./assets/home/background-home-tablet.jpg);
     }
+}
 
+@media (min-width: 45em) {
+    .home {
+        background-image: url(./assets/home/background-home-desktop.jpg);
+    }
+}
+
+/* --- Destination ------ */
+
+.destination {
+    background-image: url(./assets/destination/background-destination-mobile.jpg);
+}
+
+@media (min-width: 35em) {
     .destination {
         background-position: center center;
         background-image: url(./assets/destination/background-destination-tablet.jpg);
     }
+}
 
+@media (min-width: 45em) {
+    .destination {
+        background-image: url(./assets/destination/background-destination-desktop.jpg);
+    }
+}
+
+/* --- Crew ------ */
+
+.crew {
+    background-image: url(./assets/crew/background-crew-mobile.jpg);
+}
+
+@media (min-width: 35em) {
     .crew {
         background-position: center center;
         background-image: url(./assets/crew/background-crew-tablet.jpg);
     }
 }
+
 @media (min-width: 45em) {
-    .home {
-        background-image: url(./assets/home/background-home-desktop.jpg);
-    }
-
-    .destination {
-        background-image: url(./assets/destination/background-destination-desktop.jpg);
-    }
-
     .crew {
         background-image: url(./assets/crew/background-crew-desktop.jpg);
     }
@@ -509,8 +523,10 @@ body {
     padding-bottom: 3rem;
 }
 
-.grid-container p.mw-50ch {
-    max-width: 50ch;
+@media (max-width: 35em) {
+    .grid-container p.mw-50ch {
+        max-width: 50ch;
+    }
 }
 
 .numbered-title {
@@ -538,7 +554,6 @@ body {
 .grid-container--destination img {
     grid-area: image;
     max-width: 60%;
-
 }
 
 .grid-container--destination > .tab-list {
@@ -561,6 +576,33 @@ body {
     font-size: 1.75rem;
 }
 
+/* --- Crew layout ------ */
+
+.grid-container--crew {
+    --flow-space: 2rem;
+    grid-template-areas: 
+        'title'
+        'image'
+        'tabs'
+        'content'
+    ;
+}
+
+.grid-container--crew img {
+    grid-area: image;
+    max-width: 60%;
+    border-bottom: 1px solid hsl(var(--clr-white) / 0.1);
+}
+
+.grid-container--crew > .dot-indicators {
+    grid-area: tabs;
+}
+
+.grid-container--crew > .crew-info {
+    grid-area: content;
+}
+
+
 @media (min-width: 35em) {
     .numbered-title {
         justify-self: start;
@@ -570,6 +612,21 @@ body {
     .destination-meta {
         flex-direction: row;
         justify-content: space-evenly;
+    }
+
+    .grid-container--crew {
+        padding-bottom: 0;
+        grid-template-areas: 
+            'title'
+            'content'
+            'tabs'
+            'image'
+        ;
+    }
+
+    .grid-container--crew > img {
+        border-bottom: none;
+        align-self: end;
     }
 }
 
@@ -603,7 +660,8 @@ body {
         ;
     }
 
-    .grid-container--destination > img {
+    .grid-container--destination > img,
+    .grid-container--crew > img {
         max-width: 90%;
     }
 
@@ -611,5 +669,18 @@ body {
         --gap: min(6vw, 6rem);
         justify-content: start;
 
+    }
+
+    .grid-container--crew {
+        --flow-space: 2rem;
+        grid-template-areas: 
+            '. title title .'
+            '. content image .'
+            '. tabs image .'
+        ;
+    }
+
+    .grid-container--crew > .dot-indicators {
+        justify-self: start;
     }
 }
