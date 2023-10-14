@@ -614,8 +614,14 @@ body {
 
 .grid-container--crew picture {
     grid-area: image;
-    max-width: 60%;
     border-bottom: 1px solid hsl(var(--clr-white) / 0.1);
+    
+}
+
+.grid-container--crew picture source,
+.grid-container--crew picture img {
+    max-width: 60%;
+    margin-inline: auto;
 }
 
 .grid-container--crew > .dot-indicators {
@@ -698,6 +704,11 @@ body.technology main.grid-container {
         align-self: end;
     }
 
+    .grid-container--crew picture source,
+    .grid-container--crew picture img {
+        max-width: 80%;
+    }
+
     .grid-container--technology > .numbers-indicators button {
         height: 60px;
         width: 60px;
@@ -762,6 +773,11 @@ body.technology main.grid-container {
 
     .grid-container--crew > .dot-indicators {
         justify-self: start;
+    }
+
+    .grid-container--crew picture source,
+    .grid-container--crew picture img {
+        max-width: 100%;
     }
 
     body.technology main.grid-container {
