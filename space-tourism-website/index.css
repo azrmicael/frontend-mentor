@@ -765,7 +765,7 @@ body.technology main.grid-container {
     .grid-container--crew {
         --flow-space: 2rem;
         grid-template-areas: 
-            '. title title .'
+            '. title image .'
             '. content image .'
             '. tabs image .'
         ;
