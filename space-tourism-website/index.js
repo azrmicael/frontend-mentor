@@ -155,3 +155,55 @@ if (document.getElementById("crew")) {
 
     });
 };
+
+// ================================================================= //
+// --- Change technology page content using JSON file -------------- //
+// ================================================================= //
+
+if (document.getElementById("technology")) {
+
+    // Constants
+    const numbersIndicators = document.querySelector(".numbers-indicators");
+    const technologyName = document.querySelector("#technology-name");
+    const technologyImagePortrait = document.querySelector("#technology-image-portrait");
+    const technologyImageLandscape = document.querySelector("#technology-image-landscape");
+    const technologyDescription = document.querySelector("#technology-description");
+
+    // When someone clicks the listed crew buttons
+    numbersIndicators.addEventListener("click", (event) => {
+
+        // selects the pressed button based on its id
+        const btnId = event.target.id;
+        const btn = document.querySelector(`#${btnId}`);
+
+        // change the aria-selected
+        changeSelected(btn);
+
+        // set the initial value of d
+        let t = 0;
+
+        // change the value of c for each id
+        if      (btnId === "launch-vehicle") { t = 0; }
+        else if (btnId === "spaceport")      { t = 1; }
+        else if (btnId === "space-capsule")  { t = 2; }
+
+        // read JSON file into html with JS fetch API
+        fetch("./data.json")
+        .then(response => response.json())
+        .then(data => {
+
+            // update the name
+            technologyName.innerHTML = data.technology[t].name;
+    
+            // update the image srcset, src and alt
+            technologyImagePortrait.setAttribute("srcset", data.technology[t].images.portrait);
+            technologyImageLandscape.setAttribute("src", data.technology[t].images.landscape);
+            technologyImageLandscape.setAttribute("alt", data.technology[t].name);
+    
+            // update the description
+            technologyDescription.innerHTML = data.technology[t].description;
+
+        });
+
+    });
+};
