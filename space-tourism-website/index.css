@@ -12,7 +12,7 @@
     --clr-white: 0 0% 100%;
 
     /* font-sizes */
-    --fs-900: clamp(5rem, 11vw + 1rem, 9.375rem);
+    --fs-900: 5rem;
     --fs-800: 3.5rem;
     --fs-700: 1.5rem;
     --fs-600: 1rem;
@@ -25,6 +25,9 @@
     --ff-serif: "Bellefair", serif;
     --ff-sans-cond: "Barlow Condensed", sans-serif;
     --ff-sans-normal: "Barlow", sans-serif;
+
+    /* line-weight */
+    --lw-400 : 1.5625;
 }
 /*
   2. Tablet
@@ -32,18 +35,22 @@
 @media (min-width: 35em) {
     :root {
         /* font-sizes */
+        --fs-900: 9.375rem;
         --fs-800: 5rem;
         --fs-700: 2.5rem;
         --fs-600: 1.5rem;
         --fs-500: 1.25rem;
         --fs-400: 1rem;
         --fs-200: 1rem;
+
+        /* line-weight */
+        --lw-400 : 1.75;
     }
 }
 /*
   3. Desktop
 */
-@media (min-width: 45em) {
+@media (min-width: 50em) {
     :root {
         /* font-sizes */
         --fs-800: 6.25rem;
@@ -51,6 +58,9 @@
         --fs-500: 1.75rem;
         --fs-600: 2rem;
         --fs-400: 1.125rem;
+
+        /* line-weight */
+        --lw-400 : 2;
     }
 }
 
@@ -85,7 +95,7 @@ body {
     color: hsl(var(--clr-white));
     font-family: var(--ff-sans-normal);
     font-size: var(--fs-400);
-    line-height: 1.5;
+    line-height: var(--lw-400);
     min-height: 100vh;
 
     display: grid;
@@ -282,6 +292,7 @@ input, textarea, button, select {
 .primary-navigation {
     --gap: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
     --underline-gap: 2rem;
+    font-size: 1rem;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -359,13 +370,19 @@ input, textarea, button, select {
     }
 }
 
-@media (min-width: 35em) and (max-width: 44.999em) {
+@media (min-width: 35em) and (max-width: 49.999em) {
+    .primary-navigation {
+        font-size: 0.875rem;
+        margin-top: -0.5rem;
+        
+    }
+
     .primary-navigation a > span {
         display: none;
     }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
     .primary-header::after {
         content: "";
         display: block;
@@ -476,7 +493,7 @@ body {
     }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
     .home {
         background-image: url(./assets/home/background-home-desktop.jpg);
     }
@@ -495,7 +512,7 @@ body {
     }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
     .destination {
         background-image: url(./assets/destination/background-destination-desktop.jpg);
     }
@@ -514,7 +531,7 @@ body {
     }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
     .crew {
         background-image: url(./assets/crew/background-crew-desktop.jpg);
     }
@@ -533,7 +550,7 @@ body {
     }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
     .technology {
         background-image: url(./assets/technology/background-technology-desktop.jpg);
     }
@@ -730,9 +747,9 @@ body.technology main.grid-container {
     }
 }
 
-/* --- @media with min-width: 45em ------ */
+/* --- @media with min-width: 50em ------ */
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
     .grid-container {
         text-align: left;
         column-gap: var(--container-gap, 2rem);
