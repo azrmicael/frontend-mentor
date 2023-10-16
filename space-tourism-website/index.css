@@ -12,7 +12,7 @@
     --clr-white: 0 0% 100%;
 
     /* font-sizes */
-    --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+    --fs-900: clamp(5rem, 11vw + 1rem, 9.375rem);
     --fs-800: 3.5rem;
     --fs-700: 1.5rem;
     --fs-600: 1rem;
@@ -271,6 +271,7 @@ input, textarea, button, select {
 
 .logo {
     margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+    width: 2.5em;
 }
 
 .primary-header {
@@ -349,6 +350,10 @@ input, textarea, button, select {
 }
 
 @media (min-width: 35em) {
+    .logo {
+        width: 3rem;
+    }
+    
     .primary-navigation {
         padding-inline: clamp(3rem, 7vw, 7rem);
     }
@@ -547,9 +552,15 @@ body {
     padding-bottom: 3rem;
 }
 
-@media (max-width: 35em) {
+@media (max-width: 34.999em) {
     .grid-container p.mw-50ch {
         max-width: 50ch;
+    }
+}
+
+@media (min-width: 35em) {
+    .grid-container p.mw-50ch {
+        max-width: 27.75rem;
     }
 }
 
