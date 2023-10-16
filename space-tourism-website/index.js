@@ -151,10 +151,19 @@ if (document.getElementById("crew")) {
             // update the bio
             crewBio.innerHTML = data.crew[c].bio;
 
+            // determines number of characters per line (max-width) so that crewBio has 3 lines
+            let crewBioText = crewBio.innerText;
+            crewBioText = crewBioText.replace(/ /g, "");
+            let maxWidth =  Math.round(crewBioText.length / 3);
+
+            // update the max-width value
+            document.documentElement.style.setProperty('--max-width-js', `${maxWidth}ch`);
+
         });
 
     });
 };
+
 
 // ================================================================= //
 // --- Change technology page content using JSON file -------------- //
