@@ -28,6 +28,10 @@
 
     /* line-weight */
     --lw-400 : 1.5625;
+
+    /* nº of characters per line for crew-bio to have 3 lines (tablet) */
+    /* adjusted value (via js) for different bio texts */
+    --max-width-js: 50ch;
 }
 /*
   2. Tablet
@@ -581,6 +585,25 @@ body {
     }
 }
 
+@media (min-width: 35em) and (max-width: 49.999em) {
+    .grid-container .destination-info p.mw-50ch {
+        max-width: 35.8125rem;
+    }
+}
+
+@media (min-width: 35em) and (max-width: 49.999em) {
+    .grid-container .crew-info p.mw-50ch {
+        --n-lines: 4;
+        max-width: var(--max-width-js);
+    }
+}
+
+
+@media (min-width: 35em) and (max-width: 49.999em) {
+    .grid-container .technology-info p.mw-50ch {
+        max-width: 28.625rem;
+    }
+}
 .numbered-title {
     grid-area: title;
 }
@@ -734,7 +757,7 @@ body.technology main.grid-container {
 
     .grid-container--crew picture source,
     .grid-container--crew picture img {
-        max-width: 80%;
+        max-width: 78%;
     }
 
     .grid-container--technology > .numbers-indicators button {
