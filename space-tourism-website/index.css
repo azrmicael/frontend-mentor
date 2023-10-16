@@ -54,7 +54,7 @@
 /*
   3. Desktop
 */
-@media (min-width: 50em) {
+@media (min-width: 60em) {
     :root {
         /* font-sizes */
         --fs-800: 6.25rem;
@@ -374,7 +374,7 @@ input, textarea, button, select {
     }
 }
 
-@media (min-width: 35em) and (max-width: 49.999em) {
+@media (min-width: 35em) and (max-width: 59.999em) {
     .primary-navigation {
         font-size: 0.875rem;
         margin-top: -0.5rem;
@@ -386,7 +386,7 @@ input, textarea, button, select {
     }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 60em) {
     .primary-header::after {
         content: "";
         display: block;
@@ -497,7 +497,7 @@ body {
     }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 60em) {
     .home {
         background-image: url(./assets/home/background-home-desktop.jpg);
     }
@@ -516,7 +516,7 @@ body {
     }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 60em) {
     .destination {
         background-image: url(./assets/destination/background-destination-desktop.jpg);
     }
@@ -535,7 +535,7 @@ body {
     }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 60em) {
     .crew {
         background-image: url(./assets/crew/background-crew-desktop.jpg);
     }
@@ -554,7 +554,7 @@ body {
     }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 60em) {
     .technology {
         background-image: url(./assets/technology/background-technology-desktop.jpg);
     }
@@ -585,13 +585,13 @@ body {
     }
 }
 
-@media (min-width: 35em) and (max-width: 49.999em) {
+@media (min-width: 35em) and (max-width: 59.999em) {
     .grid-container .destination-info p.mw-50ch {
         max-width: 35.8125rem;
     }
 }
 
-@media (min-width: 35em) and (max-width: 49.999em) {
+@media (min-width: 35em) and (max-width: 59.999em) {
     .grid-container .crew-info p.mw-50ch {
         --n-lines: 4;
         max-width: var(--max-width-js);
@@ -599,7 +599,7 @@ body {
 }
 
 
-@media (min-width: 35em) and (max-width: 49.999em) {
+@media (min-width: 35em) and (max-width: 59.999em) {
     .grid-container .technology-info p.mw-50ch {
         max-width: 28.625rem;
     }
@@ -770,9 +770,9 @@ body.technology main.grid-container {
     }
 }
 
-/* --- @media with min-width: 50em ------ */
+/* --- @media with min-width: 60em ------ */
 
-@media (min-width: 50em) {
+@media (min-width: 60em) {
     .grid-container {
         text-align: left;
         column-gap: var(--container-gap, 2rem);
