@@ -628,7 +628,7 @@ body {
 
 .grid-container--destination picture {
     grid-area: image;
-    max-width: 60%;
+    max-width: 52%;
 }
 
 .grid-container--destination > .tab-list {
@@ -738,6 +738,10 @@ body.technology main.grid-container {
     .destination-meta {
         flex-direction: row;
         justify-content: space-evenly;
+    }
+
+    .grid-container--destination picture {
+        max-width: 41.67%;
     }
 
     .grid-container--crew {
