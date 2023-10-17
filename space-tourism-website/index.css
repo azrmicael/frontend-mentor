@@ -770,6 +770,17 @@ body.technology main.grid-container {
     }
 }
 
+@media (min-width: 35em) and (max-width: 59.999em) {
+    .grid-container--technology picture {
+        width: 100%;
+    }
+
+    .grid-container--technology picture img {
+        width: 100%;
+    }
+}
+
+
 /* --- @media with min-width: 60em ------ */
 
 @media (min-width: 60em) {
@@ -815,6 +826,7 @@ body.technology main.grid-container {
 
     .grid-container--crew {
         --flow-space: 2rem;
+        justify-items: start;
         grid-template-areas: 
             '. title image .'
             '. content image .'
